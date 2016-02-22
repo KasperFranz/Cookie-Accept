@@ -1,0 +1,28 @@
+
+#zenteo-cookie-bar {
+    display: none;
+    direction: ltr;
+    min-height: 30px;
+    position: fixed;
+    left: 0;
+    right: 0;
+    z-index: 99999;
+    text-align:center;
+    
+    .inner {
+        margin:6px 10px 4px;
+    }
+    a {
+        margin-left:5px;
+    }
+}
+button#zenteoCookie {
+    margin-left: 15px;
+    line-height:20px;
+    border:none;
+    padding:4px 12px;
+    border-radius: 3px;
+    cursor: pointer;
+    font-size: 13px;
+    font-weight: bold;
+}
