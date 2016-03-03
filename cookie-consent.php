@@ -20,31 +20,37 @@ function zenteo_cookie_plugin_menu()
 
 function CookieOptionsPage()
 {
-
     ?>
     <div class="wrap">
-        <?php screen_icon(); ?>
-        <h2><?php _e('Cookie Consent', 'cookie-consent'); ?></h2>
+        <?php screen_icon();
+    ?>
+        <h2><?php _e('Cookie Consent', 'cookie-consent');
+    ?></h2>
         <div id="poststuff" class="metabox-holder has-right-sidebar">
             <div id="post-body">
                 <div id="post-body-content">
                     <div class="meta-box-sortables">
                         <div class="postbox">
-                            <h3 class="hndle"><?php _e('Your settings', 'cookie-consent'); ?></h3>
+                            <h3 class="hndle"><?php _e('Your settings', 'cookie-consent');
+    ?></h3>
                             <div class="inside">
                                 <form action="options.php" method="post">				
-                                    <?php settings_fields('zenteo_cookie_options'); ?>
-                                    <?php do_settings_sections('zenteo_cookie'); ?>
-                                    <input name="cat_submit" type="submit" id="submit" class="button-primary" style="margin-top:30px;" value="<?php esc_attr_e(__('Save Changes', 'cookie-consent')); ?>" />
+                                    <?php settings_fields('zenteo_cookie_options');
+    ?>
+                                    <?php do_settings_sections('zenteo_cookie');
+    ?>
+                                    <input name="cat_submit" type="submit" id="submit" class="button-primary" style="margin-top:30px;" value="<?php esc_attr_e(__('Save Changes', 'cookie-consent'));
+    ?>" />
                                     <?php
                                     $options = get_option('zenteo_cookie_options');
-                                    $value = htmlentities($options['zenteo_cookie_link_settings'], ENT_QUOTES);
-                                    if (!$value) {
-                                        $value = 'cookie-policy';
-                                    }
+    $value = htmlentities($options['zenteo_cookie_link_settings'], ENT_QUOTES);
+    if (!$value) {
+        $value = 'cookie-policy';
+    }
 
-                                    ?>
-                                    <p><?php echo sprintf(__('Your Cookies Policy page is <a href="%s">here</a>. You may wish to create a menu item or other link on your site to this page.', 'cookie-consent'), home_url($value)); ?></p>
+    ?>
+                                    <p><?php echo sprintf(__('Your Cookies Policy page is <a href="%s">here</a>. You may wish to create a menu item or other link on your site to this page.', 'cookie-consent'), home_url($value));
+    ?></p>
                                 </form>
                             </div>
                         </div>
@@ -54,6 +60,7 @@ function CookieOptionsPage()
         </div><!-- poststuff -->
     </div>
     <?php
+
 }
 add_action('admin_init', 'zenteo_cookie_admin_init');
 
@@ -147,8 +154,10 @@ function zenteo_cookie_text_colour_settings()
     }
 
     ?>
-    <input type="text" id="zenteo_cookie_text_colour" name="zenteo_cookie_options[zenteo_cookie_text_colour_settings]" value="<?php echo $value; ?>" class="my-color-field" />
+    <input type="text" id="zenteo_cookie_text_colour" name="zenteo_cookie_options[zenteo_cookie_text_colour_settings]" value="<?php echo $value;
+    ?>" class="my-color-field" />
     <?php
+
 }
 
 function zenteo_cookie_link_colour_settings()
@@ -160,8 +169,10 @@ function zenteo_cookie_link_colour_settings()
     }
 
     ?>
-    <input type="text" name="zenteo_cookie_options[zenteo_cookie_link_colour_settings]" value="<?php echo $value; ?>" class="my-color-field" />
+    <input type="text" name="zenteo_cookie_options[zenteo_cookie_link_colour_settings]" value="<?php echo $value;
+    ?>" class="my-color-field" />
     <?php
+
 }
 
 function cookieBgColorSettings()
@@ -173,8 +184,10 @@ function cookieBgColorSettings()
     }
 
     ?>
-    <input type="text" name="zenteo_cookie_options[cookieBgColorSettings]" value="<?php echo $value; ?>" class="my-color-field" />
+    <input type="text" name="zenteo_cookie_options[cookieBgColorSettings]" value="<?php echo $value;
+    ?>" class="my-color-field" />
     <?php
+
 }
 
 function CookieButtonColourSettings()
@@ -186,8 +199,10 @@ function CookieButtonColourSettings()
     }
 
     ?>
-    <input type="text" name="zenteo_cookie_options[CookieButtonColourSettings]" value="<?php echo $value; ?>" class="my-color-field" />
+    <input type="text" name="zenteo_cookie_options[CookieButtonColourSettings]" value="<?php echo $value;
+    ?>" class="my-color-field" />
     <?php
+
 }
 
 function zenteo_cookie_bar_position_settings()
@@ -197,10 +212,17 @@ function zenteo_cookie_bar_position_settings()
 
     ?>
     <select id="zenteo_cookie_bar_position_settings" name="zenteo_cookie_options[zenteo_cookie_bar_position_settings]" >';
-        <option value="top" <?php if ($value == 'top') { ?> selected="selected" <?php } ?>>Top</option>;
-        <option value="bottom" <?php if ($value == 'bottom') { ?> selected="selected" <?php } ?>>Bottom</option>;
+        <option value="top" <?php if ($value == 'top') {
+    ?> selected="selected" <?php 
+}
+    ?>>Top</option>;
+        <option value="bottom" <?php if ($value == 'bottom') {
+    ?> selected="selected" <?php 
+}
+    ?>>Bottom</option>;
     </select>
     <?php
+
 }
 
 function zenteo_cookie_options_validate($input)
@@ -250,10 +272,13 @@ function addCookieCss()
     ?>
     <style type="text/css" media="screen">
         #zenteo-cookie-bar  { <?= $position ?>: 0; color: <?= $text_colour ?>; background-color: <?= $bg_colour ?>; }
-        #zenteo-cookie-bar a,button#zenteoCookie  { color: <?= $link_colour; ?>; }
-        button#zenteoCookie { background:<?= $button_colour; ?>; }
+        #zenteo-cookie-bar a,button#zenteoCookie  { color: <?= $link_colour;
+    ?>; }
+        button#zenteoCookie { background:<?= $button_colour;
+    ?>; }
     </style>
     <?php
+
 }
 add_action('wp_head', 'addCookieCss');
 
