@@ -3,7 +3,7 @@
   Plugin Name: Cookie Consent
   Description: Simple WordPress plugin to show a cookie accept plugin.
   Author: Zenteo ApS
-  Version: 1.0.0
+  Version: 1.0.1
   Author URI: https://www.zenteo.dk
  */
 
@@ -289,7 +289,7 @@ function addCookieBar()
     $current_text = ($options['zenteo_cookie_text_settings']) ? $options['zenteo_cookie_text_settings'] : __("This website uses cookies to improve user experience. By using our website you consent to all cookies in accordance with our Cookie Policy.", 'cookie-consent');
     $accept_text = ($options['zenteo_cookie_accept_settings']) ? $options['zenteo_cookie_accept_settings'] : __("I agree", 'cookie-consent');
     $more_text = ($options['zenteo_cookie_more_settings']) ? $options['zenteo_cookie_more_settings'] : __("Read more", 'cookie-consent');
-    $link_text = ($options['zenteo_cookie_link_settings']) ? strtolower($options['zenteo_cookie_link_settings']) : __("cookie-policy", 'cookie-consent');
+    $link_text = ($options['zenteo_cookie_link_settings']) ? strtolower($options['zenteo_cookie_link_settings']) : strtolower(__("cookie-policy", 'cookie-consent'));
 
     $content = sprintf('<div id="zenteo-cookie-bar" class="hidden-print"><div class="inner">%s <a tabindex=1 href="%s">%s</a><button id="zenteoCookie" tabindex=1 onclick="zenteoAcceptCookies();">%s</button></div></div>', htmlspecialchars($current_text), home_url($link_text), htmlspecialchars($more_text), htmlspecialchars($accept_text));
     echo apply_filters('zenteo_cookie_content', $content, $options);
