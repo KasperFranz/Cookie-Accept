@@ -43,12 +43,11 @@ function CookieOptionsPage()
     ?>" />
                                     <?php
                                     $options = get_option('zenteo_cookie_options');
-    $value = htmlentities($options['zenteo_cookie_link_settings'], ENT_QUOTES);
-    if (!$value) {
-        $value = 'cookie-policy';
-    }
-
-    ?>
+                                    $value = htmlentities($options['zenteo_cookie_link_settings'], ENT_QUOTES);
+                                    if (!$value) {
+                                        $value = __('cookie-policy', 'cookie-consent');
+                                    }
+                                    ?>
                                     <p><?php echo sprintf(__('Your Cookies Policy page is <a href="%s">here</a>. You may wish to create a menu item or other link on your site to this page.', 'cookie-consent'), home_url($value));
     ?></p>
                                 </form>
